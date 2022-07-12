@@ -2,58 +2,49 @@ package ru.netology.domains;
 
 public class Manager {
 
-    private String nameFilm;
-    private String genre;
-    private String release;
-    private int idFilm;
-    public int amountOfFilms = 10;
-
-    public Manager(int idFilm, String nameFilm, String genre, String release) {
-
-        this.idFilm = idFilm;
-        this.nameFilm = nameFilm;
-        this.genre = genre;
-        this.release = release;
-
-    }
+    private final int amountOfFilms;
 
     public Manager(int amount) {
+
         this.amountOfFilms = amount;
+
     }
 
     public Manager() {
 
+        this.amountOfFilms = 10;
+
     }
 
-    public Manager[] poster = new Manager[0];
+    public Poster[] films = new Poster[0];
 
-    public void save(Manager film) {
-        Manager[] currentPoster = new Manager[poster.length + 1];
-        for (int i = 0; i < poster.length; i++) {
-            currentPoster[i] = poster[i];
+    public void save(Poster film) {
+        Poster[] currentPoster = new Poster[films.length + 1];
+        for (int i = 0; i < films.length; i++) {
+            currentPoster[i] = films[i];
         }
         currentPoster[currentPoster.length - 1] = film;
-        poster = currentPoster;
+        films = currentPoster;
     }
 
 
-    public Manager[] getPoster() {
+    public Poster[] getPoster() {
 
-        return poster;
+        return films;
     }
 
 
-    public Manager[] getReversePoster() {
-        Manager[] all = getPoster();
-        Manager[] reversed = new Manager[all.length];
+    public Poster[] getReversePoster() {
+        Poster[] all = getPoster();
+        Poster[] reversed = new Poster[all.length];
         for (int i = 0; i < reversed.length; i++) {
             reversed[i] = all[all.length - 1 - i];
         }
         return reversed;
     }
 
-    public Manager[] getShortReversePoster() {
-        Manager[] shortPoster = new Manager[amountOfFilms];
+    public Poster[] getShortReversePoster() {
+        Poster[] shortPoster = new Poster[amountOfFilms];
         System.arraycopy(getReversePoster(), 0, shortPoster, 0, shortPoster.length);
 
         return shortPoster;
