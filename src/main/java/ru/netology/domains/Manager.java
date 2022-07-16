@@ -4,6 +4,8 @@ public class Manager {
 
     private final int amountOfFilms;
 
+    private Poster[] films = new Poster[0];
+
     public Manager(int amount) {
 
         this.amountOfFilms = amount;
@@ -16,9 +18,8 @@ public class Manager {
 
     }
 
-    public Poster[] films = new Poster[0];
 
-    public void save(Poster film) {
+    public void saveFilm(Poster film) {
         Poster[] currentPoster = new Poster[films.length + 1];
         for (int i = 0; i < films.length; i++) {
             currentPoster[i] = films[i];
@@ -28,14 +29,15 @@ public class Manager {
     }
 
 
-    public Poster[] getPoster() {
+    public Poster[] getFindAll() {
 
         return films;
+
     }
 
 
-    public Poster[] getReversePoster() {
-        Poster[] all = getPoster();
+    public Poster[] getFindLast() {
+        Poster[] all = getFindAll();
         Poster[] reversed = new Poster[all.length];
         for (int i = 0; i < reversed.length; i++) {
             reversed[i] = all[all.length - 1 - i];
@@ -43,9 +45,9 @@ public class Manager {
         return reversed;
     }
 
-    public Poster[] getShortReversePoster() {
+    public Poster[] getAdjustedFindLast() {
         Poster[] shortPoster = new Poster[amountOfFilms];
-        System.arraycopy(getReversePoster(), 0, shortPoster, 0, shortPoster.length);
+        System.arraycopy(getFindLast(), 0, shortPoster, 0, shortPoster.length);
 
         return shortPoster;
     }

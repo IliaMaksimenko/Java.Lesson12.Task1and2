@@ -23,56 +23,56 @@ public class ManagerTest {
 
 
     @Test
-    public void testPoster() {
+    public void testFindAll() {
 
         Manager poster = new Manager(5);
 
-        poster.save(film1);
-        poster.save(film2);
-        poster.save(film3);
-        poster.save(film4);
-        poster.save(film5);
-        poster.save(film6);
-        poster.save(film7);
-        poster.save(film8);
-        poster.save(film9);
-        poster.save(film10);
-        poster.save(film11);
-        poster.save(film12);
-        poster.save(film13);
-        poster.save(film14);
-        poster.save(film15);
+        poster.saveFilm(film1);
+        poster.saveFilm(film2);
+        poster.saveFilm(film3);
+        poster.saveFilm(film4);
+        poster.saveFilm(film5);
+        poster.saveFilm(film6);
+        poster.saveFilm(film7);
+        poster.saveFilm(film8);
+        poster.saveFilm(film9);
+        poster.saveFilm(film10);
+        poster.saveFilm(film11);
+        poster.saveFilm(film12);
+        poster.saveFilm(film13);
+        poster.saveFilm(film14);
+        poster.saveFilm(film15);
 
         Poster[] expected = {film1, film2, film3, film4, film5, film6, film7, film8, film9, film10, film11, film12, film13, film14, film15};
-        Poster[] actual = poster.getPoster();
+        Poster[] actual = poster.getFindAll();
 
         Assertions.assertArrayEquals(actual, expected);
     }
 
 
     @Test
-    public void testReversePoster() {
+    public void testFindLast() {
 
-        Manager poster = new Manager(5);
+        Manager poster = new Manager();
 
-        poster.save(film1);
-        poster.save(film2);
-        poster.save(film3);
-        poster.save(film4);
-        poster.save(film5);
-        poster.save(film6);
-        poster.save(film7);
-        poster.save(film8);
-        poster.save(film9);
-        poster.save(film10);
-        poster.save(film11);
-        poster.save(film12);
-        poster.save(film13);
-        poster.save(film14);
-        poster.save(film15);
+        poster.saveFilm(film1);
+        poster.saveFilm(film2);
+        poster.saveFilm(film3);
+        poster.saveFilm(film4);
+        poster.saveFilm(film5);
+        poster.saveFilm(film6);
+        poster.saveFilm(film7);
+        poster.saveFilm(film8);
+        poster.saveFilm(film9);
+        poster.saveFilm(film10);
+        poster.saveFilm(film11);
+        poster.saveFilm(film12);
+        poster.saveFilm(film13);
+        poster.saveFilm(film14);
+        poster.saveFilm(film15);
 
         Poster[] expected = {film15, film14, film13, film12, film11, film10, film9, film8, film7, film6, film5, film4, film3, film2, film1};
-        Poster[] actual = poster.getReversePoster();
+        Poster[] actual = poster.getFindLast();
 
         Assertions.assertArrayEquals(actual, expected);
     }
@@ -82,24 +82,24 @@ public class ManagerTest {
 
         Manager poster = new Manager(5);
 
-        poster.save(film1);
-        poster.save(film2);
-        poster.save(film3);
-        poster.save(film4);
-        poster.save(film5);
-        poster.save(film6);
-        poster.save(film7);
-        poster.save(film8);
-        poster.save(film9);
-        poster.save(film10);
-        poster.save(film11);
-        poster.save(film12);
-        poster.save(film13);
-        poster.save(film14);
-        poster.save(film15);
+        poster.saveFilm(film1);
+        poster.saveFilm(film2);
+        poster.saveFilm(film3);
+        poster.saveFilm(film4);
+        poster.saveFilm(film5);
+        poster.saveFilm(film6);
+        poster.saveFilm(film7);
+        poster.saveFilm(film8);
+        poster.saveFilm(film9);
+        poster.saveFilm(film10);
+        poster.saveFilm(film11);
+        poster.saveFilm(film12);
+        poster.saveFilm(film13);
+        poster.saveFilm(film14);
+        poster.saveFilm(film15);
 
         Poster[] expected = {film15, film14, film13, film12, film11};
-        Poster[] actual = poster.getShortReversePoster();
+        Poster[] actual = poster.getAdjustedFindLast();
 
         Assertions.assertArrayEquals(actual, expected);
     }
@@ -110,24 +110,24 @@ public class ManagerTest {
 
         Manager poster = new Manager();
 
-        poster.save(film1);
-        poster.save(film2);
-        poster.save(film3);
-        poster.save(film4);
-        poster.save(film5);
-        poster.save(film6);
-        poster.save(film7);
-        poster.save(film8);
-        poster.save(film9);
-        poster.save(film10);
-        poster.save(film11);
-        poster.save(film12);
-        poster.save(film13);
-        poster.save(film14);
-        poster.save(film15);
+        poster.saveFilm(film1);
+        poster.saveFilm(film2);
+        poster.saveFilm(film3);
+        poster.saveFilm(film4);
+        poster.saveFilm(film5);
+        poster.saveFilm(film6);
+        poster.saveFilm(film7);
+        poster.saveFilm(film8);
+        poster.saveFilm(film9);
+        poster.saveFilm(film10);
+        poster.saveFilm(film11);
+        poster.saveFilm(film12);
+        poster.saveFilm(film13);
+        poster.saveFilm(film14);
+        poster.saveFilm(film15);
 
         Poster[] expected = {film15, film14, film13, film12, film11, film10, film9, film8, film7, film6};
-        Poster[] actual = poster.getShortReversePoster();
+        Poster[] actual = poster.getAdjustedFindLast();
 
         Assertions.assertArrayEquals(actual, expected);
 
