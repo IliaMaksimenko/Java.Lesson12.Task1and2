@@ -2,7 +2,7 @@ package ru.netology.domains;
 
 public class Manager {
 
-    private final int amountOfFilms;
+    private int amountOfFilms;
 
     private Poster[] films = new Poster[0];
 
@@ -43,10 +43,17 @@ public class Manager {
             reversed[i] = all[all.length - 1 - i];
         }
 
+        if (reversed.length <= amountOfFilms) {
+
+            amountOfFilms = reversed.length;
+
+        }
+
         Poster[] shortPoster = new Poster[amountOfFilms];
         System.arraycopy(reversed, 0, shortPoster, 0, shortPoster.length);
 
         return shortPoster;
+
     }
 
 

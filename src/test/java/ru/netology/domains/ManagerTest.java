@@ -25,7 +25,7 @@ public class ManagerTest {
     @Test
     public void testFindAll() {
 
-        Manager poster = new Manager(5);
+        Manager poster = new Manager();
 
         poster.saveFilm(film1);
         poster.saveFilm(film2);
@@ -47,6 +47,35 @@ public class ManagerTest {
         Poster[] actual = poster.getFindAll();
 
         Assertions.assertArrayEquals(actual, expected);
+    }
+
+
+    @Test
+    public void testDefaultFindLast() {
+
+        Manager poster = new Manager();
+
+        poster.saveFilm(film1);
+        poster.saveFilm(film2);
+        poster.saveFilm(film3);
+        poster.saveFilm(film4);
+        poster.saveFilm(film5);
+        poster.saveFilm(film6);
+        poster.saveFilm(film7);
+        poster.saveFilm(film8);
+        poster.saveFilm(film9);
+        poster.saveFilm(film10);
+        poster.saveFilm(film11);
+        poster.saveFilm(film12);
+        poster.saveFilm(film13);
+        poster.saveFilm(film14);
+        poster.saveFilm(film15);
+
+        Poster[] expected = {film15, film14, film13, film12, film11, film10, film9, film8, film7, film6};
+        Poster[] actual = poster.getFindLast();
+
+        Assertions.assertArrayEquals(actual, expected);
+
     }
 
 
@@ -106,9 +135,9 @@ public class ManagerTest {
 
 
     @Test
-    public void testDefaultFindLast() {
+    public void testFindLastLessThanTheLimit() {
 
-        Manager poster = new Manager();
+        Manager poster = new Manager(10);
 
         poster.saveFilm(film1);
         poster.saveFilm(film2);
@@ -118,19 +147,25 @@ public class ManagerTest {
         poster.saveFilm(film6);
         poster.saveFilm(film7);
         poster.saveFilm(film8);
-        poster.saveFilm(film9);
-        poster.saveFilm(film10);
-        poster.saveFilm(film11);
-        poster.saveFilm(film12);
-        poster.saveFilm(film13);
-        poster.saveFilm(film14);
-        poster.saveFilm(film15);
 
-        Poster[] expected = {film15, film14, film13, film12, film11, film10, film9, film8, film7, film6};
+
+        Poster[] expected = {film8, film7, film6, film5, film4, film3, film2, film1};
         Poster[] actual = poster.getFindLast();
 
         Assertions.assertArrayEquals(actual, expected);
 
     }
 
+    @Test
+    public void testFindLastEmptyPoster() {
+
+        Manager poster = new Manager(10);
+
+
+        Poster[] expected = {};
+        Poster[] actual = poster.getFindLast();
+
+        Assertions.assertArrayEquals(actual, expected);
+
+    }
 }
