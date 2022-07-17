@@ -51,9 +51,9 @@ public class ManagerTest {
 
 
     @Test
-    public void testFindLast() {
+    public void testAllFindLast() {
 
-        Manager poster = new Manager();
+        Manager poster = new Manager(15);
 
         poster.saveFilm(film1);
         poster.saveFilm(film2);
@@ -78,7 +78,7 @@ public class ManagerTest {
     }
 
     @Test
-    public void testShortReversePoster() {
+    public void testAdjustedFindLast() {
 
         Manager poster = new Manager(5);
 
@@ -99,14 +99,14 @@ public class ManagerTest {
         poster.saveFilm(film15);
 
         Poster[] expected = {film15, film14, film13, film12, film11};
-        Poster[] actual = poster.getAdjustedFindLast();
+        Poster[] actual = poster.getFindLast();
 
         Assertions.assertArrayEquals(actual, expected);
     }
 
 
     @Test
-    public void testDefaultPoster() {
+    public void testDefaultFindLast() {
 
         Manager poster = new Manager();
 
@@ -127,7 +127,7 @@ public class ManagerTest {
         poster.saveFilm(film15);
 
         Poster[] expected = {film15, film14, film13, film12, film11, film10, film9, film8, film7, film6};
-        Poster[] actual = poster.getAdjustedFindLast();
+        Poster[] actual = poster.getFindLast();
 
         Assertions.assertArrayEquals(actual, expected);
 

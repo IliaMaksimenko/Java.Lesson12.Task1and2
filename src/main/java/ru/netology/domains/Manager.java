@@ -42,14 +42,13 @@ public class Manager {
         for (int i = 0; i < reversed.length; i++) {
             reversed[i] = all[all.length - 1 - i];
         }
-        return reversed;
-    }
 
-    public Poster[] getAdjustedFindLast() {
         Poster[] shortPoster = new Poster[amountOfFilms];
-        System.arraycopy(getFindLast(), 0, shortPoster, 0, shortPoster.length);
+        System.arraycopy(reversed, 0, shortPoster, 0, shortPoster.length);
 
         return shortPoster;
     }
+
+
 }
 
